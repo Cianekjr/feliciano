@@ -1,53 +1,153 @@
 <template>
-  <header class="header">
-    <h1 class="header__title">
-      Feliciano
-    </h1>
-    <button @click="handleMenuShow" class="header__button">
-      Menu
-    </button>
-    <nav v-if="showMenu" class="header__nav">
-      <nuxt-link to="/">
-        Home
-      </nuxt-link>
-      <nuxt-link to="/about">
-        About
-      </nuxt-link>
-      <nuxt-link to="/menu">
+  <header class="wrapper">
+    <container class="container">
+      <h1 @click="hideMenu" class="title">
+        <nuxt-link to="/" class="logo-link">
+          Feliciano
+        </nuxt-link>
+      </h1>
+      <button v-if="isMobile" @click="handleMenuShow" class="menu-button">
         Menu
-      </nuxt-link>
-      <nuxt-link to="/stories">
-        Stories
-      </nuxt-link>
-      <nuxt-link to="/contact">
-        Contact
-      </nuxt-link>
-    </nav>
+      </button>
+      <nav v-if="showMenu || !isMobile" class="nav">
+        <ul class="nav-list">
+          <li @click="hideMenu" v-for="link in links" class="list-item">
+            <nuxt-link :class="link.modifier" :to="link.to" class="nav-link">
+              {{ link.name }}
+            </nuxt-link>
+          </li>
+        </ul>
+      </nav>
+    </container>
   </header>
 </template>
 
 <script lang="ts">
-import { createComponent, ref } from '@vue/composition-api'
+import { computed, createComponent, ref } from '@vue/composition-api'
+import { viewportStore } from '~/store'
+import container from '~/layouts/container.vue'
+
+interface Link {
+  name: String,
+  to: String,
+  modifier?: String
+}
 
 export default createComponent({
+  components: {
+    container
+  },
   setup () {
+    const links: Link[] = [{
+      name: 'Home',
+      to: '/'
+    },
+    {
+      name: 'About',
+      to: '/about'
+    },
+    {
+      name: 'Menu',
+      to: '/menu'
+    },
+    {
+      name: 'Stories',
+      to: '/stories'
+    },
+    {
+      name: 'Contact',
+      to: '/contact'
+    },
+    {
+      name: 'Book a table',
+      to: '/reservation',
+      modifier: 'button'
+    }]
+
     const showMenu = ref(false)
-    const handleMenuShow = () => {
+    const handleMenuShow = (): void => {
       showMenu.value = !showMenu.value
     }
+    const hideMenu = (): void => {
+      showMenu.value = false
+    }
+
+    const isMobile = computed(() => viewportStore.isMobile)
+
     return {
-      showMenu, handleMenuShow
+      links, showMenu, handleMenuShow, hideMenu, viewportStore, isMobile
     }
   }
 })
 </script>
 
-<style lang="scss">
-.header {
-  color: red;
-  &__title {
-    color: blue;
-    font-size: 30px;
+<style scoped lang="scss">
+  .wrapper {
+    background-color: #000;
   }
-}
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    padding: 1rem 1.5rem;
+  }
+
+  .nav {
+    grid-column: span 2;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: .8rem;
+  }
+
+  .menu-button {
+    height: 100%;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+  }
+
+  .logo-link {
+    width: min-content;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+    line-height: 2;
+    padding: .9rem 0;
+  }
+
+  .button {
+    background-color: #c8a97e;
+    padding: 1.5rem;
+    border-radius: .5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      align-items: center;
+      grid-template-columns: 1fr max-content;
+      /*background-color: transparent;*/
+    }
+
+    .nav {
+      grid-column: span 1;
+    }
+
+    .nav-list {
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    .nav-link {
+      padding: .9rem 1rem;
+    }
+  }
 </style>
