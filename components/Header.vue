@@ -89,7 +89,8 @@ export default createComponent({
   .container {
     display: grid;
     grid-template-columns: 1fr 80px;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem;
+    color: #fff;
   }
 
   .nav {
@@ -130,10 +131,13 @@ export default createComponent({
   }
 
   @media (min-width: 768px) {
+    .wrapper {
+      /*background-color: transparent;*/
+    }
+
     .container {
       align-items: center;
       grid-template-columns: 1fr max-content;
-      /*background-color: transparent;*/
     }
 
     .nav {

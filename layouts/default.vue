@@ -1,18 +1,21 @@
 <template>
   <div>
+    <InfoBar v-if="!isMobile" />
     <Header />
     <nuxt />
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent, ref, onMounted, onBeforeUnmount } from '@vue/composition-api'
+import { createComponent, onMounted, onBeforeUnmount, computed } from '@vue/composition-api'
 import Header from '~/components/Header.vue'
+import InfoBar from '~/components/InfoBar.vue'
 import { viewportStore } from '~/store'
 
 export default createComponent({
   components: {
-    Header
+    Header,
+    InfoBar
   },
   setup () {
     const handleResize = () => {
@@ -22,7 +25,8 @@ export default createComponent({
       })
     }
 
-    const isMobileViewport = ref(false)
+    const isMobile = computed(() => viewportStore.isMobile)
+
     onMounted(() => {
       window.addEventListener('resize', handleResize)
       handleResize()
@@ -32,7 +36,7 @@ export default createComponent({
     })
 
     return {
-      isMobileViewport, handleResize
+      isMobile
     }
   }
 })
@@ -46,6 +50,11 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 
 *,
@@ -60,7 +69,7 @@ html {
 a {
   display: block;
   text-decoration: none;
-  color: #fff;
+  color: inherit;
 }
 
 ul, li {
