@@ -1,66 +1,66 @@
 <template>
-  <div class="container">
+  <div class="capsule">
     <slot />
   </div>
 </template>
 
 <style scoped lang="scss">
-  .container {
+  .capsule {
     max-width: 380px;
     margin: 0 auto;
     padding: 0 1rem;
   }
 
   @media (min-width: 420px) {
-    .container {
+    .capsule {
       max-width: 400px;
     }
   }
 
   @media (min-width: 480px) {
-    .container {
+    .capsule {
       max-width: 420px;
     }
   }
 
   @media (min-width: 520px) {
-    .container {
+    .capsule {
       max-width: 480px;
     }
   }
 
   @media (min-width: 620px) {
-    .container {
+    .capsule {
       max-width: 580px;
     }
   }
 
   @media (min-width: 760px) {
-    .container {
+    .capsule {
       max-width: 700px;
     }
   }
 
   @media (min-width: 900px) {
-    .container {
+    .capsule {
       max-width: 800px;
     }
   }
 
   @media (min-width: 1050px) {
-    .container {
+    .capsule {
       max-width: 900px;
     }
   }
 
   @media (min-width: 1240px) {
-    .container {
+    .capsule {
       max-width: 1040px;
     }
   }
 
   @media (min-width: 1360px) {
-    .container {
+    .capsule {
       max-width: 1140px;
     }
   }
