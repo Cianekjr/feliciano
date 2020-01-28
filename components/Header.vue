@@ -1,157 +1,31 @@
 <template>
   <header class="wrapper">
-    <container class="container">
-      <h1 @click="hideMenu" class="title">
-        <nuxt-link to="/" class="logo-link">
-          Feliciano
-        </nuxt-link>
-      </h1>
-      <button v-if="isMobile" @click="handleMenuShow" class="menu-button">
-        Menu
-      </button>
-      <nav v-if="showMenu || !isMobile" class="nav">
-        <ul class="nav-list">
-          <li @click="hideMenu" v-for="link in links" class="list-item">
-            <nuxt-link :class="link.modifier" :to="link.to" class="nav-link">
-              {{ link.name }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </nav>
-    </container>
+    <div class="overlay" />
   </header>
 </template>
 
 <script lang="ts">
-import { computed, createComponent, ref } from '@vue/composition-api'
-import { viewportStore } from '~/store'
-import container from '~/layouts/container.vue'
-
-interface Link {
-  name: String,
-  to: String,
-  modifier?: String
-}
+import { createComponent } from '@vue/composition-api'
 
 export default createComponent({
-  components: {
-    container
-  },
   setup () {
-    const links: Link[] = [{
-      name: 'Home',
-      to: '/'
-    },
-    {
-      name: 'About',
-      to: '/about'
-    },
-    {
-      name: 'Menu',
-      to: '/menu'
-    },
-    {
-      name: 'Stories',
-      to: '/stories'
-    },
-    {
-      name: 'Contact',
-      to: '/contact'
-    },
-    {
-      name: 'Book a table',
-      to: '/reservation',
-      modifier: 'button'
-    }]
-
-    const showMenu = ref(false)
-    const handleMenuShow = (): void => {
-      showMenu.value = !showMenu.value
-    }
-    const hideMenu = (): void => {
-      showMenu.value = false
-    }
-
-    const isMobile = computed(() => viewportStore.isMobile)
-
-    return {
-      links, showMenu, handleMenuShow, hideMenu, viewportStore, isMobile
-    }
+    return {}
   }
 })
 </script>
 
 <style scoped lang="scss">
   .wrapper {
-    background-color: #000;
+    background-image: url("../assets/images/bg_1.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
   }
 
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 80px;
-    padding: 1rem 1rem;
-    color: #fff;
-  }
-
-  .nav {
-    grid-column: span 2;
-  }
-
-  .nav-list {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: .8rem;
-  }
-
-  .menu-button {
+  .overlay {
+    background-color: rgba(0, 0, 0, .7);
+    width: 100%;
     height: 100%;
-    background-color: transparent;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    color: rgba(255, 255, 255, .5);
-    cursor: pointer;
-  }
-
-  .logo-link {
-    width: min-content;
-    font-size: 2rem;
-    font-weight: 900;
-  }
-
-  .nav-link {
-    font-size: 1.4rem;
-    line-height: 2;
-    padding: .9rem 0;
-  }
-
-  .button {
-    background-color: #c8a97e;
-    padding: 1.5rem;
-    border-radius: .5rem;
-  }
-
-  @media (min-width: 768px) {
-    .wrapper {
-      /*background-color: transparent;*/
-    }
-
-    .container {
-      align-items: center;
-      grid-template-columns: 1fr max-content;
-    }
-
-    .nav {
-      grid-column: span 1;
-    }
-
-    .nav-list {
-      flex-direction: row;
-      align-items: center;
-      padding-bottom: 0;
-    }
-
-    .nav-link {
-      padding: .9rem 1rem;
-    }
   }
 </style>

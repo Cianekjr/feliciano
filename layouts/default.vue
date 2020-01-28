@@ -1,78 +1,53 @@
 <template>
-  <div>
-    <InfoBar v-if="!isMobile" />
-    <Header />
+  <div class="app">
+    <div class="header">
+      <InfoBar v-if="!isMobile" />
+      <Nav />
+    </div>
+    <transition name="slide">
+      <Nav v-show="isScrolled" is-fixed class="header fixed" />
+    </transition>
     <nuxt />
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent, onMounted, onBeforeUnmount, computed } from '@vue/composition-api'
-import Header from '~/components/Header.vue'
+import { createComponent } from '@vue/composition-api'
+import Nav from '~/components/Nav.vue'
 import InfoBar from '~/components/InfoBar.vue'
-import { viewportStore } from '~/store'
+import useScrollOffset from '~/hooks/useScrollOffset'
+import useMobileViewport from '~/hooks/useMobileViewport'
 
 export default createComponent({
   components: {
-    Header,
+    Nav,
     InfoBar
   },
   setup () {
-    const handleResize = () => {
-      viewportStore.setViewport({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-    }
-
-    const isMobile = computed(() => viewportStore.isMobile)
-
-    onMounted(() => {
-      window.addEventListener('resize', handleResize)
-      handleResize()
-    })
-    onBeforeUnmount(() => {
-      window.removeEventListener('resize', handleResize)
-    })
+    const { isMobile } = useMobileViewport()
+    const { isScrolled } = useScrollOffset()
 
     return {
+      isScrolled,
       isMobile
     }
   }
 })
 </script>
 
-<style>
-html {
-  font-family: 'Poppins', Arial, sans-serif;
-  font-size: 10px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100%;
-}
+<style scoped lang="scss">
+  .app {
+    position: relative;
+  }
 
-body {
-  min-height: 100%;
-}
+  .header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-ul, li {
-  list-style-type: none;
-}
+  .fixed {
+    position: fixed;
+  }
 </style>

@@ -1,25 +1,20 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">
-        feliciano
-      </h1>
-      <h2 class="subtitle">
-        Restaurant and catering website.
-      </h2>
-    </div>
+    <Header />
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent, ref } from '@vue/composition-api'
+import { createComponent } from '@vue/composition-api'
+import Header from '~/components/Header.vue'
 
 export default createComponent({
+  components: {
+    Header
+  },
   setup () {
-    const message = ref('This is a message')
-
     return {
-      message
+
     }
   }
 })

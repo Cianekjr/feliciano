@@ -1,0 +1,12 @@
+.slide-leave-active,
+.slide-enter-active {
+  transition: .4s;
+}
+
+.slide-enter {
+  transform: translateY(-100%);
+}
+
+.slide-leave-to {
+  transform: translateY(-100%);
+}

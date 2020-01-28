@@ -15,6 +15,7 @@ export default {
   },
   loading: { color: '#fff' },
   css: [
+    '@/css/index.scss'
   ],
   plugins: [
     '~/plugins/composition-api'

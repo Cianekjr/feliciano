@@ -31,8 +31,8 @@ export default createComponent({
 
 <style scoped lang="scss">
   .wrapper {
-    background-color: rgba(255, 255, 255, .5);
-    color: rgba(0, 0, 0, .5);
+    background-color: rgba(255, 255, 255, .05);
+    color: rgba(255, 255, 255, .5);
     font-size: 1.4rem;
     line-height: 2;
   }
@@ -41,5 +41,6 @@ export default createComponent({
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
+    padding: 4px 1rem;
   }
 </style>
