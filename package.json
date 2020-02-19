@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Restaurant and catering website.",
   "author": "Mateusz Chrzanowski",
-  "private": true,
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
@@ -21,27 +20,27 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.3.8",
+    "@nuxt/typescript-runtime": "^0.3.9",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@vue/composition-api": "^0.3.4",
-    "nuxt": "^2.0.0",
-    "vue": "latest"
+    "@vue/composition-api": "^0.4.0",
+    "nuxt": "^2.11.0",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.6",
-    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-config": "^2.0.2",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^25.1.0",
     "eslint": "^6.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
-    "husky": "^2.6.0",
-    "jest": "^24.1.0",
-    "lint-staged": "^8.2.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "vue-jest": "^4.0.0-0",
-    "vuex-module-decorators": "^0.11.0"
+    "vuex-module-decorators": "^0.16.1"
   }
 }

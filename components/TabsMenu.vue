@@ -2,7 +2,7 @@
   <section class="wrapper">
     <nav class="nav">
       <ul class="nav-list">
-        <li v-for="menu in menus" class="list-item">
+        <li v-for="(menu, index) in menus" :key="index" class="list-item">
           <nuxt-link :to="{ path: 'menu', query: { menu }}" :class="activeMenu === menu && 'active'" class="nav-link">
             {{ menu }}
           </nuxt-link>
@@ -13,9 +13,9 @@
 </template>
 
 <script lang="ts">
-import { createComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 
-export default createComponent({
+export default defineComponent({
   setup (_, ctx) {
     const menus: String[] = ['breakfast', 'lunch', 'dinner', 'drinks', 'desserts', 'wine']
     const activeMenu = computed(() => ctx?.root?.$route?.query?.menu || menus[0])
