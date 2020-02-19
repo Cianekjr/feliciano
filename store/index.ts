@@ -1,13 +1,13 @@
 import { Store } from 'vuex'
 import { getModule } from 'vuex-module-decorators'
 
-import viewport from '~/store/viewport'
+import ViewportModule from '~/store/viewport'
 
 // eslint-disable-next-line import/no-mutable-exports
-export let viewportStore: viewport
+export let viewportStore: ViewportModule
 
 function initialiseStores (store: Store<any>): void {
-  viewportStore = getModule(viewport, store)
+  viewportStore = getModule(ViewportModule, store)
 }
 
 const initializer = (store: Store<any>) => initialiseStores(store)

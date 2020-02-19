@@ -12,13 +12,13 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import Nav from '~/components/Nav.vue'
 import InfoBar from '~/components/InfoBar.vue'
 import useScrollOffset from '~/hooks/useScrollOffset'
 import useMobileViewport from '~/hooks/useMobileViewport'
 
-export default createComponent({
+export default defineComponent({
   components: {
     Nav,
     InfoBar

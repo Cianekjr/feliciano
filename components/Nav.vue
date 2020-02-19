@@ -6,12 +6,12 @@
           Feliciano
         </nuxt-link>
       </h1>
-      <button v-if="isMobile" @click="handleMenuShow" :class="props.isFixed && 'fixed'" class="menu-button">
+      <button v-if="isMobile" :class="props.isFixed && 'fixed'" class="menu-button" @click="handleMenuShow">
         Menu
       </button>
       <nav v-if="showMenu || !isMobile" class="nav">
         <ul class="nav-list">
-          <li @click="hideMenu" v-for="link in links" class="list-item">
+          <li v-for="(link, index) in links" :key="index" class="list-item" @click="hideMenu">
             <nuxt-link :class="[link.modifier, props.isFixed && 'fixed']" :to="link.to" class="nav-link">
               {{ link.name }}
             </nuxt-link>
@@ -23,17 +23,12 @@
 </template>
 
 <script lang="ts">
-import { computed, createComponent, ref } from '@vue/composition-api'
+import { computed, defineComponent, ref } from '@vue/composition-api'
 import { viewportStore } from '~/store'
 import container from '~/layouts/container.vue'
+import { Link } from '~/models/definitions'
 
-interface Link {
-  name: String,
-  to: String,
-  modifier?: String
-}
-
-export default createComponent({
+export default defineComponent({
   components: {
     container
   },

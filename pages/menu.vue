@@ -8,12 +8,12 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import container from '~/layouts/container.vue'
 import Header from '~/components/Header.vue'
 import TabsMenu from '~/components/TabsMenu.vue'
 
-export default createComponent({
+export default defineComponent({
   components: {
     container,
     Header,

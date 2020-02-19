@@ -1,9 +1,5 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
-
-interface Viewport {
-  width: Number,
-  height: Number
-}
+import { Viewport } from '~/models/definitions'
 
 @Module({
   name: 'viewport',
