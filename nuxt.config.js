@@ -18,17 +18,15 @@ export default {
     '@/css/index.scss'
   ],
   plugins: [
-    '~/plugins/composition-api'
+    '~/plugins/composition-api.ts',
+    '~/plugins/mirage'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build'
   ],
   modules: [
-    '@nuxtjs/pwa'
-  ],
-  build: {
-    extend (config, ctx) {
-    }
-  }
+    '@nuxtjs/pwa',
+    '@nuxtjs/axios'
+  ]
 }

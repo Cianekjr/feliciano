@@ -2,9 +2,9 @@
   <section class="wrapper">
     <nav class="nav">
       <ul class="nav-list">
-        <li v-for="(menu, index) in menus" :key="index" class="list-item">
-          <nuxt-link :to="{ path: 'menu', query: { menu }}" :class="activeMenu === menu && 'active'" class="nav-link">
-            {{ menu }}
+        <li v-for="category in categories" :key="category.id" class="list-item">
+          <nuxt-link :to="{ path: 'menu', query: { category: category.name }}" :class="activeCategory === category.name && 'active'" class="nav-link">
+            {{ category.name }}
           </nuxt-link>
         </li>
       </ul>
@@ -13,14 +13,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+
+import { defineComponent, computed, onMounted } from '@vue/composition-api'
+import { Category } from '~/models/definitions'
 
 export default defineComponent({
   setup (_, ctx) {
-    const menus: String[] = ['breakfast', 'lunch', 'dinner', 'drinks', 'desserts', 'wine']
-    const activeMenu = computed(() => ctx?.root?.$route?.query?.menu || menus[0])
+    onMounted(() => {
+      ctx.root.$store.dispatch('category/getCategories')
+    })
+    const categories: any = computed((): Category[] => ctx.root.$store.getters['category/categoriesMenu'])
+    const activeCategory = computed(() => ctx.root.$route.query.category || categories[0]?.name)
+
     return {
-      menus, activeMenu
+      categories, activeCategory
     }
   }
 })

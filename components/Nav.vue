@@ -11,7 +11,7 @@
       </button>
       <nav v-if="showMenu || !isMobile" class="nav">
         <ul class="nav-list">
-          <li v-for="(link, index) in links" :key="index" class="list-item" @click="hideMenu">
+          <li v-for="link in links" :key="link.id" class="list-item" @click="hideMenu">
             <nuxt-link :class="[link.modifier, props.isFixed && 'fixed']" :to="link.to" class="nav-link">
               {{ link.name }}
             </nuxt-link>
@@ -24,7 +24,6 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from '@vue/composition-api'
-import { viewportStore } from '~/store'
 import container from '~/layouts/container.vue'
 import { Link } from '~/models/definitions'
 
@@ -35,32 +34,39 @@ export default defineComponent({
   props: {
     isFixed: Boolean
   },
-  setup (props) {
-    const links: Link[] = [{
-      name: 'Home',
-      to: '/'
-    },
-    {
-      name: 'About',
-      to: '/about'
-    },
-    {
-      name: 'Menu',
-      to: '/menu'
-    },
-    {
-      name: 'Stories',
-      to: '/stories'
-    },
-    {
-      name: 'Contact',
-      to: '/contact'
-    },
-    {
-      name: 'Book a table',
-      to: '/reservation',
-      modifier: 'button'
-    }]
+  setup (props, ctx) {
+    const links: Link[] = [
+      {
+        id: 0,
+        name: 'Home',
+        to: '/'
+      },
+      {
+        id: 1,
+        name: 'About',
+        to: '/about'
+      },
+      {
+        id: 2,
+        name: 'Menu',
+        to: '/menu'
+      },
+      {
+        id: 3,
+        name: 'Stories',
+        to: '/stories'
+      },
+      {
+        id: 4,
+        name: 'Contact',
+        to: '/contact'
+      },
+      {
+        id: 5,
+        name: 'Book a table',
+        to: '/reservation',
+        modifier: 'button'
+      }]
 
     const showMenu = ref(false)
     const handleMenuShow = (): void => {
@@ -70,10 +76,10 @@ export default defineComponent({
       showMenu.value = false
     }
 
-    const isMobile = computed(() => viewportStore.isMobile)
+    const isMobile = computed(() => ctx.root.$store.getters['viewport/isMobile'])
 
     return {
-      links, showMenu, handleMenuShow, hideMenu, viewportStore, isMobile, props
+      links, showMenu, handleMenuShow, hideMenu, isMobile, props
     }
   }
 })
@@ -92,7 +98,7 @@ export default defineComponent({
   .container {
     display: grid;
     grid-template-columns: 1fr 80px;
-    padding: 1rem 1rem;
+    padding: 1rem;
     color: #fff;
 
     &.fixed {
