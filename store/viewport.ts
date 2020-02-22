@@ -1,27 +1,22 @@
-import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
 import { Viewport } from '~/models/definitions'
 
-@Module({
-  name: 'viewport',
-  stateFactory: true,
-  namespaced: true
-})
+export interface ViewportState {
+  viewport: Viewport
+}
 
-class ViewportModule extends VuexModule {
-  viewport: Viewport = {
+export const state = (): ViewportState => ({
+  viewport: {
     width: 0,
     height: 0
   }
+})
 
-  @Mutation
-  setViewport (viewport: Viewport) {
-    this.viewport.width = viewport.width
-    this.viewport.height = viewport.height
-  }
-
-  get isMobile () {
-    return this.viewport.width < 768
+export const mutations = {
+  setViewport (state: ViewportState, viewport: Viewport) {
+    state.viewport = viewport
   }
 }
 
-export default ViewportModule
+export const getters = {
+  isMobile: (state: ViewportState) => state.viewport.width < 768
+}

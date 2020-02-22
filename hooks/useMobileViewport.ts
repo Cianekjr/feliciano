@@ -1,14 +1,14 @@
-import { onMounted, onBeforeUnmount, computed } from '@vue/composition-api'
-import { viewportStore } from '~/store'
+import { onMounted, onBeforeUnmount, computed, SetupContext } from '@vue/composition-api'
 
-const useMobileViewport = () => {
+const useMobileViewport = (ctx: SetupContext) => {
   const handleResize = () => {
-    viewportStore.setViewport({
+    ctx.root.$store.commit('viewport/setViewport', {
       width: window.innerWidth,
       height: window.innerHeight
     })
   }
-  const isMobile = computed(() => viewportStore.isMobile)
+
+  const isMobile = computed(() => ctx.root.$store.getters['viewport/isMobile'])
 
   onMounted(() => {
     window.addEventListener('resize', handleResize)

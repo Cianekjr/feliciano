@@ -23,8 +23,8 @@ export default defineComponent({
     Nav,
     InfoBar
   },
-  setup () {
-    const { isMobile } = useMobileViewport()
+  setup (_, ctx) {
+    const { isMobile } = useMobileViewport(ctx)
     const { isScrolled } = useScrollOffset()
 
     return {
