@@ -12,7 +12,7 @@
         youremail@email.com
       </a>
       <span>
-        Open hours: Monday - Sunday <time datetime="PT13H">8:00AM - 9:00PM</time>
+        Open hours: Monday - Saturday <time datetime="PT13H">8:00AM - 9:00PM</time>
       </span>
     </container>
   </section>

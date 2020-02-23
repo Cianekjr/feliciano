@@ -8,6 +8,7 @@
       <Nav v-show="isScrolled" is-fixed class="header fixed" />
     </transition>
     <nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -15,13 +16,15 @@
 import { defineComponent } from '@vue/composition-api'
 import Nav from '~/components/Nav.vue'
 import InfoBar from '~/components/InfoBar.vue'
+import Footer from '~/components/Footer.vue'
 import useScrollOffset from '~/hooks/useScrollOffset'
 import useMobileViewport from '~/hooks/useMobileViewport'
 
 export default defineComponent({
   components: {
     Nav,
-    InfoBar
+    InfoBar,
+    Footer
   },
   setup (_, ctx) {
     const { isMobile } = useMobileViewport(ctx)
