@@ -22,8 +22,9 @@ export default defineComponent({
     onMounted(() => {
       ctx.root.$store.dispatch('category/getCategories')
     })
+
     const categories: any = computed((): Category[] => ctx.root.$store.getters['category/categoriesMenu'])
-    const activeCategory = computed(() => ctx.root.$route.query.category || categories[0]?.name)
+    const activeCategory = computed(() => ctx.root.$route.query.category || ctx.root.$store.getters['category/categoriesMenu'][0]?.name)
 
     return {
       categories, activeCategory
