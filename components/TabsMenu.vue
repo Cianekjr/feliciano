@@ -42,7 +42,7 @@ export default defineComponent({
 
     display: grid;
     grid-auto-flow: row;
-    row-gap: 4px;
+    row-gap: .4rem;
   }
 
   .nav-link {
@@ -51,6 +51,13 @@ export default defineComponent({
     text-transform: capitalize;
     text-align: center;
     font-weight: 600;
+    transition: background-color .3s ease, color .3s ease;
+    position: relative;
+
+    &:hover {
+      background-color: #c09d6c;
+      color: #fff;
+    }
 
     &.active {
       background-color: #c8a97e;
@@ -60,10 +67,27 @@ export default defineComponent({
 
   @media (min-width: 768px) {
     .nav-list {
-      margin-bottom: 2rem;
-
       grid-auto-flow: column;
-      row-gap: 4px;
+    }
+
+    .nav-link {
+      &::after {
+        position: absolute;
+        content: '';
+        top: 100%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        transform: translateX(-50%);
+        border: 1rem solid transparent;
+        transition: border-color .3s ease;
+      }
+
+      &.active {
+        &::after {
+          border-top-color: #c8a97e;
+        }
+      }
     }
   }
 </style>
