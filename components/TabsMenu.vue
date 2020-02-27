@@ -14,17 +14,26 @@
 
 <script lang="ts">
 
-import { defineComponent, computed, onMounted } from '@vue/composition-api'
+import { defineComponent, computed, onMounted, SetupContext } from '@vue/composition-api'
 import { Category } from '~/models/definitions'
 
 export default defineComponent({
-  setup (_, ctx) {
+  setup (props, ctx: SetupContext) {
     onMounted(() => {
       ctx.root.$store.dispatch('category/getCategories')
     })
 
-    const categories: any = computed((): Category[] => ctx.root.$store.getters['category/categoriesMenu'])
-    const activeCategory = computed(() => ctx.root.$route.query.category || ctx.root.$store.getters['category/categoriesMenu'][0]?.name)
+    const categories: any = computed((): Category[] => {
+      const categoriesMenu = ctx.root.$store.getters['category/categoriesMenu']
+      const category = ctx.root.$route.query.category
+      if (!category) {
+        ctx.root.$router.push({ query: { category: categoriesMenu[0]?.name } })
+      }
+      ctx.root.$store.dispatch('menu-dishes/getMenuDishes', category)
+      return categoriesMenu
+    })
+
+    const activeCategory = computed(() => ctx.root.$route.query.category)
 
     return {
       categories, activeCategory
