@@ -28,3 +28,15 @@ export interface Media {
   icon: String,
   fallbackIcon?: String
 }
+
+export interface Dish {
+  id: Number,
+  name: String,
+  ingredients: String,
+  price: Number,
+  img: String,
+}
+
+export interface MenuDishes {
+  [key: string]: Dish[],
+}

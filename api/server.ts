@@ -1,4 +1,4 @@
-import { Category, OpenHour } from '~/models/definitions'
+import { Category, OpenHour, Dish, MenuDishes } from '~/models/definitions'
 
 const options = {
   'routes' () {
@@ -24,7 +24,7 @@ const options = {
         name: 'desserts'
       },
       {
-        id: 4,
+        id: 5,
         name: 'wine'
       }
     ])
@@ -64,6 +64,117 @@ const options = {
         id: 6
       }
     ])
+
+    this.get('/getMenuDishes/:name', (_: any, req: any): Dish[] => {
+      const menuDishes: MenuDishes = {
+        breakfast: [
+          {
+            id: 0,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 1,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 2,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 3,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 4,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 5,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 6,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          },
+          {
+            id: 7,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          }
+        ],
+        lunch: [
+          {
+            id: 0,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          }
+        ],
+        dinner: [
+          {
+            id: 0,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          }
+        ],
+        drinks: [
+          {
+            id: 0,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          }
+        ],
+        desserts: [
+          {
+            id: 0,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          }
+        ],
+        wine: [
+          {
+            id: 0,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 29,
+            img: ''
+          }
+        ]
+      }
+      const name = req.params?.name
+
+      return menuDishes[name] || []
+    })
 
     this.post('/sendNewsletter', (_: any, req: any) => {
       return req.requestBody
