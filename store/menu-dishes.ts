@@ -9,10 +9,13 @@ export const state = (): MenuDishesState => ({
 })
 
 export const actions = {
-  async getMenuDishes ({ commit }: any, category: String) {
-    const response: Response = await fetch(`/getMenuDishes/${category}`)
-    const data = await response.json()
-    commit('setMenuDishes', data)
+  async getMenuDishes ({ commit }: any, { $axios, category } : any) {
+    const response = await $axios?.get('/getMenuDishes', {
+      params: {
+        category
+      }
+    })
+    commit('setMenuDishes', response?.data || [])
   }
 }
 

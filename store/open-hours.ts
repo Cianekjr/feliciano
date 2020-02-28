@@ -9,10 +9,9 @@ export const state = (): OpenHourState => ({
 })
 
 export const actions = {
-  async getOpenHours ({ commit }: any) {
-    const response: Response = await fetch('/getOpenHours')
-    const data = await response.json()
-    commit('setOpenHours', data)
+  async getOpenHours ({ commit }: any, { $axios }: any) {
+    const response = await $axios.get('/getOpenHours')
+    commit('setOpenHours', response?.data)
   }
 }
 

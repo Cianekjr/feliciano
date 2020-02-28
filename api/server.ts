@@ -65,7 +65,7 @@ const options = {
       }
     ])
 
-    this.get('/getMenuDishes/:name', (_: any, req: any): Dish[] => {
+    this.get('/getMenuDishes', (_: any, req: any): Dish[] => {
       const menuDishes: MenuDishes = {
         breakfast: [
           {
@@ -171,9 +171,8 @@ const options = {
           }
         ]
       }
-      const name = req.params?.name
-
-      return menuDishes[name] || []
+      const category = req.queryParams?.category
+      return menuDishes[category] || []
     })
 
     this.post('/sendNewsletter', (_: any, req: any) => {

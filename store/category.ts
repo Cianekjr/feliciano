@@ -9,10 +9,9 @@ export const state = (): CategoryState => ({
 })
 
 export const actions = {
-  async getCategories ({ commit }: any) {
-    const response: Response = await fetch('/getCategories')
-    const data = await response.json()
-    commit('setCategories', data)
+  async getCategories ({ commit }: any, { $axios }: any) {
+    const response = await $axios.get('/getCategories')
+    commit('setCategories', response?.data)
   }
 }
 

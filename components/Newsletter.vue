@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, SetupContext } from '@vue/composition-api'
 import Input from '~/components/Input.vue'
 import Button from '~/components/Button.vue'
 
@@ -25,9 +25,12 @@ export default defineComponent({
     Input,
     Button
   },
-  setup (_, ctx) {
+  setup (_, ctx: SetupContext) {
+    const { $store, $axios } = ctx?.root
     const submitNewsletter = () => {
-      ctx.root.$store.dispatch('newsletter/sendNewsletter')
+      $store.dispatch('newsletter/sendNewsletter', {
+        $axios
+      })
     }
     return { submitNewsletter }
   }

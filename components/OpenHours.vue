@@ -15,15 +15,18 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted } from '@vue/composition-api'
+import { computed, defineComponent, onMounted, SetupContext } from '@vue/composition-api'
 import { OpenHour } from '~/models/definitions'
 
 export default defineComponent({
-  setup (_, ctx) {
+  setup (_, ctx: SetupContext) {
+    const { $store, $axios } = ctx?.root
     onMounted(() => {
-      ctx.root.$store.dispatch('open-hours/getOpenHours')
+      $store.dispatch('open-hours/getOpenHours', {
+        $axios
+      })
     })
-    const openHours: any = computed((): OpenHour[] => ctx.root.$store.getters['open-hours/openHours'])
+    const openHours: any = computed((): OpenHour[] => $store.getters['open-hours/openHours'])
     const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     return {

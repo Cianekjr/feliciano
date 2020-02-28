@@ -25,6 +25,11 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build'
   ],
+  axios: {
+    baseUrl: `http://${process.env.API_HOST}:${process.env.API_PORT}`,
+    credentials: true,
+    proxyHeaders: true
+  },
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/axios'
