@@ -1,7 +1,6 @@
 <template>
   <section class="gallery">
     <img v-for="n in 6" :key="n" :src="`images/insta-${n}.jpg`" class="image" alt="Instagram photo">
-    <a />
   </section>
 </template>
 

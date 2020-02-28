@@ -7,10 +7,9 @@ export const state = (): NewsletterState => ({
 })
 
 export const actions = {
-  async sendNewsletter ({ state }: any) {
-    await fetch('/sendNewsletter', {
-      method: 'POST',
-      body: JSON.stringify(state)
+  async sendNewsletter ({ state }: any, { $axios }: any) {
+    await $axios.post('/sendNewsletter', {
+      ...state
     })
   }
 }

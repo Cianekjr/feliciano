@@ -19,17 +19,24 @@ import { Category } from '~/models/definitions'
 
 export default defineComponent({
   setup (props, ctx: SetupContext) {
+    const { $router, $store, $axios } = ctx?.root
     onMounted(() => {
-      ctx.root.$store.dispatch('category/getCategories')
+      $store.dispatch('category/getCategories', {
+        $axios
+      })
     })
 
     const categories: any = computed((): Category[] => {
-      const categoriesMenu = ctx.root.$store.getters['category/categoriesMenu']
+      const categoriesMenu = $store.getters['category/categoriesMenu']
       const category = ctx.root.$route.query.category
       if (!category) {
-        ctx.root.$router.push({ query: { category: categoriesMenu[0]?.name } })
+        $router.push({ query: { category: categoriesMenu[0]?.name } })
+      } else {
+        $store.dispatch('menu-dishes/getMenuDishes', {
+          $axios,
+          category
+        })
       }
-      ctx.root.$store.dispatch('menu-dishes/getMenuDishes', category)
       return categoriesMenu
     })
 

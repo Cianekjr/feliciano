@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed, SetupContext } from '@vue/composition-api'
 
 export default defineComponent({
   props: {
@@ -38,13 +38,14 @@ export default defineComponent({
       default: false
     }
   },
-  setup (props, ctx) {
+  setup (props, ctx: SetupContext) {
+    const { $store } = ctx?.root
     const message = computed({
       get () {
-        return ctx.root.$store.getters[`${props.store}/${props.name}`]
+        return $store.getters[`${props.store}/${props.name}`]
       },
       set (value) {
-        ctx.root.$store.commit(`${props.store}/${props.commit}`, value)
+        $store.commit(`${props.store}/${props.commit}`, value)
       }
     })
     return { props, message }

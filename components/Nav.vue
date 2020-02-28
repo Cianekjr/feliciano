@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from '@vue/composition-api'
+import { computed, defineComponent, ref, SetupContext } from '@vue/composition-api'
 import container from '~/layouts/container.vue'
 import { Link } from '~/models/definitions'
 
@@ -34,7 +34,8 @@ export default defineComponent({
   props: {
     isFixed: Boolean
   },
-  setup (props, ctx) {
+  setup (props, ctx: SetupContext) {
+    const { $store } = ctx?.root
     const links: Link[] = [
       {
         id: 0,
@@ -76,7 +77,7 @@ export default defineComponent({
       showMenu.value = false
     }
 
-    const isMobile = computed(() => ctx.root.$store.getters['viewport/isMobile'])
+    const isMobile = computed(() => $store.getters['viewport/isMobile'])
 
     return {
       links, showMenu, handleMenuShow, hideMenu, isMobile, props
