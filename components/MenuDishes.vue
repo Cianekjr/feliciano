@@ -1,7 +1,12 @@
 <template>
-  <section class="wrapper">
-    <Dish v-for="dish in menuDishes" :key="dish.id" :dish="dish" />
-  </section>
+  <ul class="wrapper">
+    <Dish
+      v-for="(dish, index) in menuDishes"
+      :key="dish.id"
+      :dish="dish"
+      :reverse="index % 4 === 2 || index % 4 === 3"
+    />
+  </ul>
 </template>
 
 <script lang="ts">
