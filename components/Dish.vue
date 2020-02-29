@@ -1,6 +1,6 @@
 <template>
   <li class="dish" :class="props.reverse && 'reverse'">
-    <img src="../static/images/breakfast-2.jpg" class="image" :alt="props.dish.name">
+    <img :src="require(`../assets/images/${props.dish.img}`)" class="image" :alt="props.dish.name">
     <div class="description">
       <h3 class="name">
         {{ props.dish.name }}

@@ -2,7 +2,7 @@
   <ul class="list">
     <li v-for="item in media" :key="item.id">
       <a :href="item.link" class="item-link">
-        <img :src="`icons/${item.icon}`" :alt="item.name" class="icon">
+        <img :src="require(`../assets/icons/${item.icon}`)" :alt="item.name" class="icon">
       </a>
     </li>
   </ul>

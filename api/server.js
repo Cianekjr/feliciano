@@ -71,56 +71,56 @@ const options = {
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
             price: 29,
-            img: ''
+            img: 'breakfast-1.jpg'
           },
           {
             id: 1,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 39,
+            img: 'breakfast-2.jpg'
           },
           {
             id: 2,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 15,
+            img: 'breakfast-3.jpg'
           },
           {
             id: 3,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 23,
+            img: 'breakfast-4.jpg'
           },
           {
             id: 4,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 26,
+            img: 'breakfast-5.jpg'
           },
           {
             id: 5,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 32,
+            img: 'breakfast-6.jpg'
           },
           {
             id: 6,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 16,
+            img: 'breakfast-7.jpg'
           },
           {
             id: 7,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 20,
+            img: 'breakfast-8.jpg'
           }
         ],
         lunch: [
@@ -128,8 +128,43 @@ const options = {
             id: 0,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 49,
+            img: 'lunch-1.jpg'
+          },
+          {
+            id: 1,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 54,
+            img: 'lunch-2.jpg'
+          },
+          {
+            id: 2,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 45,
+            img: 'lunch-3.jpg'
+          },
+          {
+            id: 3,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 39,
+            img: 'lunch-4.jpg'
+          },
+          {
+            id: 4,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 36,
+            img: 'lunch-5.jpg'
+          },
+          {
+            id: 5,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 52,
+            img: 'lunch-6.jpg'
           }
         ],
         dinner: [
@@ -137,8 +172,43 @@ const options = {
             id: 0,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 22,
+            img: 'dinner-1.jpg'
+          },
+          {
+            id: 1,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 34,
+            img: 'dinner-2.jpg'
+          },
+          {
+            id: 2,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 32,
+            img: 'dinner-3.jpg'
+          },
+          {
+            id: 3,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
             price: 29,
-            img: ''
+            img: 'dinner-4.jpg'
+          },
+          {
+            id: 4,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 26,
+            img: 'dinner-5.jpg'
+          },
+          {
+            id: 5,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 33,
+            img: 'dinner-6.jpg'
           }
         ],
         drinks: [
@@ -146,8 +216,43 @@ const options = {
             id: 0,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 49,
+            img: 'drink-1.jpg'
+          },
+          {
+            id: 1,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 54,
+            img: 'drink-2.jpg'
+          },
+          {
+            id: 2,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 45,
+            img: 'drink-3.jpg'
+          },
+          {
+            id: 3,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 39,
+            img: 'drink-4.jpg'
+          },
+          {
+            id: 4,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 36,
+            img: 'drink-5.jpg'
+          },
+          {
+            id: 5,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 52,
+            img: 'drink-6.jpg'
           }
         ],
         desserts: [
@@ -155,8 +260,29 @@ const options = {
             id: 0,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 22,
+            img: 'dessert-1.jpg'
+          },
+          {
+            id: 1,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 24,
+            img: 'dessert-2.jpg'
+          },
+          {
+            id: 2,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 26,
+            img: 'dessert-3.jpg'
+          },
+          {
+            id: 3,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 23,
+            img: 'dessert-4.jpg'
           }
         ],
         wine: [
@@ -164,8 +290,57 @@ const options = {
             id: 0,
             name: 'Grilled Beef with potatoes',
             ingredients: 'Meat, Potatoes, Rice, Tomatoe',
-            price: 29,
-            img: ''
+            price: 59,
+            img: 'wine-1.jpg'
+          },
+          {
+            id: 1,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 63,
+            img: 'wine-2.jpg'
+          },
+          {
+            id: 2,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 80,
+            img: 'wine-3.jpg'
+          },
+          {
+            id: 3,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 99,
+            img: 'wine-4.jpg'
+          },
+          {
+            id: 4,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 78,
+            img: 'wine-5.jpg'
+          },
+          {
+            id: 5,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 66,
+            img: 'wine-6.jpg'
+          },
+          {
+            id: 6,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 98,
+            img: 'wine-7.jpg'
+          },
+          {
+            id: 7,
+            name: 'Grilled Beef with potatoes',
+            ingredients: 'Meat, Potatoes, Rice, Tomatoe',
+            price: 78,
+            img: 'wine-8.jpg'
           }
         ]
       }
