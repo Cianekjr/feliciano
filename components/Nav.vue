@@ -12,7 +12,7 @@
       <nav v-if="showMenu || !isMobile" class="nav">
         <ul class="nav-list">
           <li v-for="link in links" :key="link.id" class="list-item" @click="hideMenu">
-            <nuxt-link :class="[link.modifier, props.isFixed && 'fixed']" :to="link.to" class="nav-link">
+            <nuxt-link :class="[link.modifier, props.isFixed && 'fixed', path === link.to && 'active']" :to="link.to" class="nav-link">
               {{ link.name }}
             </nuxt-link>
           </li>
@@ -77,10 +77,12 @@ export default defineComponent({
       showMenu.value = false
     }
 
+    const path = computed(() => ctx.root.$route.path)
+
     const isMobile = computed(() => $store.getters['viewport/isMobile'])
 
     return {
-      links, showMenu, handleMenuShow, hideMenu, isMobile, props
+      links, showMenu, handleMenuShow, hideMenu, isMobile, props, path
     }
   }
 })
@@ -143,6 +145,10 @@ export default defineComponent({
     font-size: 1.4rem;
     line-height: 2;
     padding: 1.4rem 0;
+
+    &.active {
+      color: #c8a97e;
+    }
   }
 
   .button {

@@ -31,7 +31,9 @@ export default {
     proxyHeaders: true
   },
   router: {
-    prefetchLinks: false
+    prefetchLinks: false,
+    linkActiveClass: 'active-link',
+    linkExactActiveClass: 'exact-active-link'
   },
   modules: [
     '@nuxtjs/pwa',
