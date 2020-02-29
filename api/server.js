@@ -1,8 +1,6 @@
-import { Category, OpenHour, Dish, MenuDishes } from '~/models/definitions'
-
 const options = {
   'routes' () {
-    this.get('/getCategories', (): Category[] => [
+    this.get('/getCategories', () => [
       {
         id: 0,
         name: 'breakfast'
@@ -29,7 +27,7 @@ const options = {
       }
     ])
 
-    this.get('/getOpenHours', (): OpenHour[] => [
+    this.get('/getOpenHours', () => [
       {
         id: 0,
         start: '8:00',
@@ -65,8 +63,8 @@ const options = {
       }
     ])
 
-    this.get('/getMenuDishes', (_: any, req: any): Dish[] => {
-      const menuDishes: MenuDishes = {
+    this.get('/getMenuDishes', (_, req) => {
+      const menuDishes = {
         breakfast: [
           {
             id: 0,
@@ -175,7 +173,7 @@ const options = {
       return menuDishes[category] || []
     })
 
-    this.post('/sendNewsletter', (_: any, req: any) => {
+    this.post('/sendNewsletter', (_, req) => {
       return req.requestBody
     })
   }
