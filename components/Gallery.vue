@@ -1,6 +1,6 @@
 <template>
   <section class="gallery">
-    <img v-for="n in 6" :key="n" :src="`images/insta-${n}.jpg`" class="image" alt="Instagram photo">
+    <img v-for="n in 6" :key="n" :src="require(`../assets/images/insta-${n}.jpg`)" class="image" alt="Instagram photo">
   </section>
 </template>
 
