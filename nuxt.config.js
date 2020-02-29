@@ -30,6 +30,9 @@ export default {
     credentials: true,
     proxyHeaders: true
   },
+  router: {
+    prefetchLinks: false
+  },
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/axios'
