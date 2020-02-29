@@ -8,11 +8,11 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js, .ts, .vue --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore .",
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint"
+    "*.{js, ts, vue}": "npm run lint"
   },
   "husky": {
     "hooks": {
