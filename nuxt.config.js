@@ -18,7 +18,7 @@ export default {
     '@/css/index.scss'
   ],
   plugins: [
-    '~/plugins/composition-api.ts',
+    '~/plugins/composition-api',
     '~/plugins/mirage'
   ],
   buildModules: [
