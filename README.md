@@ -1,12 +1,14 @@
 **In progress...**
 
+***
+
 # feliciano
 
 > Restaurant and catering website.
 
-___
-
 #### Template author: [Colorlib](https://colorlib.com/wp/template/feliciano)
+
+---
 
 ### Technologies:
 
@@ -17,6 +19,9 @@ ___
 - Typescript
 - PWA
 - Jest
+- Heroku (Hosting)
+- Buddy.Works (CI/CD)
+
 ___
 
 ## Build Setup
@@ -37,4 +42,8 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+
+***
+Icons made by [Golmin Design](https://www.iconfinder.com/golmin)
 

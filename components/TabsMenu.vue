@@ -55,7 +55,6 @@ export default defineComponent({
     font-size: 2rem;
     line-height: 2;
     margin-bottom: 2rem;
-
     display: grid;
     grid-auto-flow: row;
     row-gap: .4rem;
