@@ -35,23 +35,23 @@ export default defineComponent({
     position: relative;
 
     &.bg1 {
-      background-image: url('~assets/images/bg_1.jpg');
+      background-image: url('~assets/images/bg-1.jpg');
     }
 
     &.bg2 {
-      background-image: url('~assets/images/bg_2.jpg');
+      background-image: url('~assets/images/bg-2.jpg');
     }
 
     &.bg3 {
-      background-image: url('~assets/images/bg_3.jpg');
+      background-image: url('~assets/images/bg-3.jpg');
     }
 
     &.bg4 {
-      background-image: url('~assets/images/bg_4.jpg');
+      background-image: url('~assets/images/bg-4.jpg');
     }
 
     &.bg5 {
-      background-image: url('~assets/images/bg_5.jpg');
+      background-image: url('~assets/images/bg-5.jpg');
     }
 
     &.half {

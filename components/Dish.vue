@@ -9,17 +9,21 @@
       <p class="ingredients">
         {{ props.dish.ingredients }}
       </p>
-      <nuxt-link to="#" class="link">
+      <LinkButton to="#">
         Order now
-      </nuxt-link>
+      </LinkButton>
     </div>
   </li>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import LinkButton from '~/components/LinkButton.vue'
 
 export default defineComponent({
+  components: {
+    LinkButton
+  },
   props: {
     dish: {
       type: Object,
@@ -76,23 +80,6 @@ export default defineComponent({
   .ingredients {
     grid-column: span 2;
     font-size: 1.7rem;
-  }
-
-  .link {
-    display: block;
-    border: 1px solid #c8a97e;
-    background-color: #c8a97e;
-    color: #fff;
-    font-size: 1.6rem;
-    padding: .6rem 1.2rem;
-    width: max-content;
-    height: min-content;
-    border-radius: .2rem;
-
-    &:hover {
-      color: #c8a97e;
-      background-color: transparent;
-    }
   }
 
   @media (min-width: 640px) {

@@ -4,6 +4,7 @@
     :type="props.type"
     :disabled="props.disabled"
     :name="props.name"
+    :class="props.reverse && 'reverse'"
   >
     <slot />
   </button>
@@ -24,6 +25,10 @@ export default defineComponent({
     name: {
       type: String,
       required: true
+    },
+    reverse: {
+      type: Boolean,
+      default: false
     }
   },
   setup (props) {
@@ -37,6 +42,7 @@ export default defineComponent({
     width: 100%;
     height: 5.2rem;
     background-color: #c8a97e;
+    border: 1px solid #c8a97e;
     border-radius: .2rem;
     font-size: 1.6rem;
     color: #fff;
@@ -44,5 +50,10 @@ export default defineComponent({
     font-family: inherit;
     font-weight: inherit;
     cursor: pointer;
+
+    &.reverse {
+      background-color: #fff;
+      color: #c8a97e;
+    }
   }
 </style>

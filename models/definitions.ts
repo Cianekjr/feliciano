@@ -40,3 +40,13 @@ export interface Dish {
 export interface MenuDishes {
   [key: string]: Dish[],
 }
+
+export interface Article {
+  id: Number,
+  title: String,
+  img: String,
+  date: String,
+  author: String,
+  commentsCount: Number,
+  link: String
+}
