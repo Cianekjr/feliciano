@@ -26,9 +26,7 @@ export default {
     '@nuxt/typescript-build'
   ],
   axios: {
-    baseUrl: `http://${process.env.API_HOST}:${process.env.API_PORT}`,
-    credentials: true,
-    proxyHeaders: true
+    baseURL: `http://${process.env.API_HOST}:${process.env.API_PORT}`
   },
   router: {
     prefetchLinks: false,
