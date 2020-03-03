@@ -26,7 +26,7 @@ export default {
     '@nuxt/typescript-build'
   ],
   axios: {
-    baseURL: `http://${process.env.API_HOST}:${process.env.API_PORT}`
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://feliciano.herokuapp.com' : 'http://localhost:3000'
   },
   router: {
     prefetchLinks: false,
