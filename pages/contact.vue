@@ -1,19 +1,21 @@
 <template>
-  <div class="container">
-    Contact
+  <div class="wrapper">
+    <Header :bg-index="4" title="Contact" half />
+    <container class="container">
+      Contact
+    </container>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
+import container from '~/layouts/container.vue'
+import Header from '~/components/Header.vue'
 
 export default defineComponent({
-  setup () {
-    const message = ref('This is a message')
-
-    return {
-      message
-    }
+  components: {
+    container,
+    Header
   }
 })
 </script>
