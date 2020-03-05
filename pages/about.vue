@@ -2,7 +2,7 @@
   <div class="wrapper">
     <Header :bg-index="2" title="About" half />
     <container class="container">
-      About
+      <Heading heading="Services" subheading="Catering Services" />
     </container>
   </div>
 </template>
@@ -11,11 +11,13 @@
 import { defineComponent } from '@vue/composition-api'
 import container from '~/layouts/container.vue'
 import Header from '~/components/Header.vue'
+import Heading from '~/components/Heading.vue'
 
 export default defineComponent({
   components: {
     container,
-    Header
+    Header,
+    Heading
   }
 })
 </script>
