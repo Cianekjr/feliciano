@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+console.log('EXPRESS SERVER INIT INIT INIT NIT NITN ITI INTI INIT INTI IN T EXPRESS SERVER INIT INIT INIT NIT NITN ITI INTI INIT INTI IN T EXPRESS SERVER INIT INIT INIT NIT NITN ITI INTI INIT INTI IN T')
 
 const corsOptions = {
   origin: true
