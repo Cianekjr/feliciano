@@ -30,7 +30,7 @@ export default defineComponent({
       default: false
     }
   },
-  setup (props) {
+  setup (props: any) {
     return {
       props
     }
@@ -48,6 +48,7 @@ export default defineComponent({
     border-radius: .2rem;
     font-size: 1.6rem;
     color: #fff;
+    fill: #fff;
     padding: .6rem 1.6rem;
     font-family: inherit;
     font-weight: inherit;
@@ -57,11 +58,13 @@ export default defineComponent({
 
     &:hover {
       color: #c09d6c;
+      fill: #c09d6c;
       background-color: transparent;
     }
 
     &.active {
       color: #c8a97e;
+      fill: #c8a97e;
       background-color: transparent;
     }
 
@@ -75,14 +78,17 @@ export default defineComponent({
     &.reverse {
       background-color: transparent;
       color: #c8a97e;
+      fill: #c8a97e;
 
       &:hover {
         color: #fff;
+        fill: #fff;
         background-color: #c09d6c;
       }
 
       &.active {
         color: #fff;
+        fill: #fff;
         background-color: #c8a97e;
       }
 

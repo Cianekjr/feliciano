@@ -5,8 +5,10 @@
   "author": "Mateusz Chrzanowski",
   "scripts": {
     "dev": "nuxt",
+    "dev-api": "nodemon ./api/express.js",
     "build": "nuxt build",
     "start": "nuxt start",
+    "start-api": "node ./api/express.js",
     "generate": "nuxt generate",
     "lint": "eslint --ignore-path .gitignore .",
     "test": "jest"
@@ -23,6 +25,8 @@
     "@nuxtjs/axios": "^5.9.5",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@vue/composition-api": "^0.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "nuxt": "^2.11.0",
     "vue": "^2.6.11"
   },
@@ -38,8 +42,8 @@
     "husky": "^4.2.3",
     "jest": "^25.1.0",
     "lint-staged": "^10.0.7",
-    "miragejs": "^0.1.35",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
     "sass-loader": "^8.0.2",
     "vue-jest": "^4.0.0-0"
   }

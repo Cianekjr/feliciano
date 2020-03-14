@@ -34,7 +34,7 @@ export default defineComponent({
   props: {
     isFixed: Boolean
   },
-  setup (props, ctx: SetupContext) {
+  setup (props: any, ctx: SetupContext) {
     const { $store } = ctx?.root
     const links: Link[] = [
       {

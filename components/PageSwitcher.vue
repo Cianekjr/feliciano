@@ -7,7 +7,16 @@
         class="switch-button"
         :disabled="Number(activePage) === 1"
       >
-        <img src="~assets/icons/arrow-left.svg" alt="Arrow left" class="arrow">
+        <svg
+          class="arrow"
+          height="19px"
+          version="1.1"
+          viewBox="0 0 512 512"
+          width="19px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
+        </svg>
       </LinkButton>
     </li>
     <li v-for="n in pages" :key="n" class="item">
@@ -27,7 +36,14 @@
         class="switch-button"
         :disabled="Number(activePage) === Number(pages)"
       >
-        <img src="~assets/icons/arrow-right.svg" alt="Arrow right" class="arrow">
+        <svg
+          class="arrow"
+          version="1.1"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 " />
+        </svg>
       </LinkButton>
     </li>
   </ul>
@@ -41,26 +57,12 @@ export default defineComponent({
   components: {
     LinkButton
   },
-  setup (props, ctx: SetupContext) {
-    const { $store, $axios, $router } = ctx?.root
-    const ARTICLES_LIMIT = 6
+  setup (props: any, ctx: SetupContext) {
+    const { $store } = ctx?.root
 
     const pages = computed(() => $store.getters['articles/pages'])
 
-    const activePage = computed(() => {
-      const page = ctx.root.$route.query.page
-
-      if (!page) {
-        $router.push({ query: { page: '1' } })
-      } else {
-        $store.dispatch('articles/getArticles', {
-          $axios,
-          limit: ARTICLES_LIMIT,
-          offset: (Number(page) - 1) * ARTICLES_LIMIT
-        })
-      }
-      return page
-    })
+    const activePage = computed(() => ctx.root.$route.query.page || '1')
 
     return {
       pages, activePage
@@ -85,6 +87,7 @@ export default defineComponent({
   }
 
   .arrow {
-    height: 50%;
+    height: 2rem;
+    width: 2rem;
   }
 </style>

@@ -14,33 +14,58 @@
 
 <script lang="ts">
 
-import { defineComponent, computed, onMounted, SetupContext } from '@vue/composition-api'
+import { defineComponent, computed, onMounted, SetupContext, watch, onServerPrefetch } from '@vue/composition-api'
 import { Category } from '~/models/definitions'
 
 export default defineComponent({
-  setup (props, ctx: SetupContext) {
-    const { $router, $store, $axios } = ctx?.root
+  setup (props: any, ctx: SetupContext) {
+    const { $store, $axios, $route } = ctx?.root
+
+    onServerPrefetch(async () => {
+      await $store.dispatch('category/getCategories', {
+        $axios
+      })
+      const categoriesMenu = $store.getters['category/categoriesMenu']
+      const category = $route.query.category || categoriesMenu[0]?.name
+
+      return $store.dispatch('menu-dishes/getMenuDishes', {
+        $axios,
+        category
+      })
+    })
+
     onMounted(() => {
       $store.dispatch('category/getCategories', {
         $axios
       })
     })
 
-    const categories: any = computed((): Category[] => {
-      const categoriesMenu = $store.getters['category/categoriesMenu']
+    const categories: any = computed((): Category[] => $store.getters['category/categoriesMenu'])
+    const activeCategory = computed(() => {
       const category = ctx.root.$route.query.category
-      if (!category) {
-        $router.push({ query: { category: categoriesMenu[0]?.name } })
+      if (category) {
+        return category
       } else {
+        const categoriesMenu = $store.getters['category/categoriesMenu']
+        return categoriesMenu[0]?.name
+      }
+    })
+
+    watch(activeCategory, (category: String) => {
+      if (category) {
+        $store.dispatch('menu-dishes/getMenuDishes', {
+          $axios,
+          category
+        })
+      } else {
+        const categoriesMenu = $store.getters['category/categoriesMenu']
+        const category = categoriesMenu[0]?.name
         $store.dispatch('menu-dishes/getMenuDishes', {
           $axios,
           category
         })
       }
-      return categoriesMenu
     })
-
-    const activeCategory = computed(() => ctx.root.$route.query.category)
 
     return {
       categories, activeCategory

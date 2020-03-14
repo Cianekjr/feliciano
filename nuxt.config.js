@@ -1,4 +1,3 @@
-
 export default {
   mode: 'universal',
   head: {
@@ -18,15 +17,15 @@ export default {
     '@/css/index.scss'
   ],
   plugins: [
-    '~/plugins/composition-api',
-    '~/plugins/mirage'
+    '~/plugins/composition-api'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build'
   ],
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://feliciano.herokuapp.com' : 'http://localhost:3000'
+    baseURL: 'http://127.0.0.1:8080',
+    withCredentials: true
   },
   router: {
     prefetchLinks: false,
