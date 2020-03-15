@@ -15,12 +15,17 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, SetupContext } from '@vue/composition-api'
+import { computed, defineComponent, onMounted, SetupContext, onServerPrefetch } from '@vue/composition-api'
 import { OpenHour } from '~/models/definitions'
 
 export default defineComponent({
-  setup (_, ctx: SetupContext) {
+  setup (_: any, ctx: SetupContext) {
     const { $store, $axios } = ctx?.root
+    onServerPrefetch(() => {
+      return $store.dispatch('open-hours/getOpenHours', {
+        $axios
+      })
+    })
     onMounted(() => {
       $store.dispatch('open-hours/getOpenHours', {
         $axios

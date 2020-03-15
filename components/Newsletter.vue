@@ -25,7 +25,7 @@ export default defineComponent({
     Input,
     Button
   },
-  setup (_, ctx: SetupContext) {
+  setup (_: any, ctx: SetupContext) {
     const { $store, $axios } = ctx?.root
     const submitNewsletter = () => {
       $store.dispatch('newsletter/sendNewsletter', {

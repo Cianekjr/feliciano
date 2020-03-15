@@ -38,13 +38,13 @@ export default defineComponent({
       default: false
     }
   },
-  setup (props, ctx: SetupContext) {
+  setup (props: any, ctx: SetupContext) {
     const { $store } = ctx?.root
     const message = computed({
       get () {
         return $store.getters[`${props.store}/${props.name}`]
       },
-      set (value) {
+      set (value: String) {
         $store.commit(`${props.store}/${props.commit}`, value)
       }
     })

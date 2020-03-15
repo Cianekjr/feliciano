@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, SetupContext } from '@vue/composition-api'
 import Nav from '~/components/Nav.vue'
 import InfoBar from '~/components/InfoBar.vue'
 import Footer from '~/components/Footer.vue'
@@ -26,7 +26,7 @@ export default defineComponent({
     InfoBar,
     Footer
   },
-  setup (_, ctx) {
+  setup (_: any, ctx: SetupContext) {
     const { isMobile } = useMobileViewport(ctx)
     const { isScrolled } = useScrollOffset()
 

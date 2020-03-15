@@ -20,7 +20,7 @@ export default defineComponent({
     half: Boolean,
     title: String
   },
-  setup (props) {
+  setup (props: any) {
     const bgImage = `bg${props.bgIndex}`
     return { props, bgImage }
   }

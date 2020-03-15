@@ -1,3 +1,14 @@
+const express = require('express')
+const cors = require('cors')
+
+const corsOptions = {
+  origin: true
+}
+
+const app = express()
+app.use(cors(corsOptions))
+app.use(express.json())
+
 const menuDishes = {
   breakfast: [
     {
@@ -339,7 +350,7 @@ const articles = [
     img: 'bg-1.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 5,
     link: '#'
   },
   {
@@ -348,7 +359,7 @@ const articles = [
     img: 'article-2.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 6,
     link: '#'
   },
   {
@@ -357,7 +368,7 @@ const articles = [
     img: 'bg-3.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 1,
     link: '#'
   },
   {
@@ -366,7 +377,7 @@ const articles = [
     img: 'insta-4.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 13,
     link: '#'
   },
   {
@@ -375,31 +386,31 @@ const articles = [
     img: 'article-5.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 91,
     link: '#'
   },
   {
     id: 11,
-    title: '5 ways to make oatmeal for breakfast',
-    img: 'insta-6.jpg',
-    date: 'Sept. 06, 2019',
-    author: 'Admin',
-    commentsCount: 3,
-    link: '#'
-  },
-  {
-    id: 12,
     title: 'Taste the delicious foods in Asia',
     img: 'insta-1.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 33,
+    link: '#'
+  },
+  {
+    id: 12,
+    title: '5 ways to make oatmeal for breakfast',
+    img: 'insta-6.jpg',
+    date: 'Sept. 06, 2019',
+    author: 'Admin',
+    commentsCount: 8,
     link: '#'
   },
   {
     id: 13,
-    title: 'Significance of Thandai on Shivaratri',
-    img: 'article-2.jpg',
+    title: 'For the sake of that royal touch!',
+    img: 'wine-4.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
     commentsCount: 3,
@@ -407,17 +418,17 @@ const articles = [
   },
   {
     id: 14,
-    title: '10 exotic fish recipes to make at home',
-    img: 'bg-3.jpg',
+    title: 'Significance of Thandai on Shivaratri',
+    img: 'article-2.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
-    commentsCount: 3,
+    commentsCount: 45,
     link: '#'
   },
   {
     id: 15,
-    title: 'For the sake of that royal touch!',
-    img: 'wine-4.jpg',
+    title: '10 exotic fish recipes to make at home',
+    img: 'bg-3.jpg',
     date: 'Sept. 06, 2019',
     author: 'Admin',
     commentsCount: 3,
@@ -434,88 +445,91 @@ const articles = [
   }
 ]
 
-const options = {
-  'routes' () {
-    this.get('/getCategories', () => [
-      {
-        id: 0,
-        name: 'breakfast'
-      },
-      {
-        id: 1,
-        name: 'lunch'
-      },
-      {
-        id: 2,
-        name: 'dinner'
-      },
-      {
-        id: 3,
-        name: 'drinks'
-      },
-      {
-        id: 4,
-        name: 'desserts'
-      },
-      {
-        id: 5,
-        name: 'wine'
-      }
-    ])
+app.get('/getMenuDishes', (req, res) => {
+  const category = req.query && req.query.category
+  res.send(menuDishes[category] || [])
+})
 
-    this.get('/getOpenHours', () => [
-      {
-        id: 0,
-        start: '8:00',
-        end: '21:00'
-      },
-      {
-        id: 1,
-        start: '8:00',
-        end: '21:00'
-      },
-      {
-        id: 2,
-        start: '8:00',
-        end: '21:00'
-      },
-      {
-        id: 3,
-        start: '8:00',
-        end: '21:00'
-      },
-      {
-        id: 4,
-        start: '8:00',
-        end: '21:00'
-      },
-      {
-        id: 5,
-        start: '8:00',
-        end: '21:00'
-      },
-      {
-        id: 6
-      }
-    ])
+app.get('/getCategories', (_, res) => {
+  res.send([
+    {
+      id: 0,
+      name: 'breakfast'
+    },
+    {
+      id: 1,
+      name: 'lunch'
+    },
+    {
+      id: 2,
+      name: 'dinner'
+    },
+    {
+      id: 3,
+      name: 'drinks'
+    },
+    {
+      id: 4,
+      name: 'desserts'
+    },
+    {
+      id: 5,
+      name: 'wine'
+    }
+  ])
+})
 
-    this.get('/getMenuDishes', (_, req) => {
-      const category = req.queryParams?.category
-      return menuDishes[category] || []
-    })
+app.get('/getOpenHours', (req, res) => {
+  res.send([
+    {
+      id: 0,
+      start: '8:00',
+      end: '21:00'
+    },
+    {
+      id: 1,
+      start: '8:00',
+      end: '21:00'
+    },
+    {
+      id: 2,
+      start: '8:00',
+      end: '21:00'
+    },
+    {
+      id: 3,
+      start: '8:00',
+      end: '21:00'
+    },
+    {
+      id: 4,
+      start: '8:00',
+      end: '21:00'
+    },
+    {
+      id: 5,
+      start: '8:00',
+      end: '21:00'
+    },
+    {
+      id: 6
+    }
+  ])
+})
 
-    this.post('/sendNewsletter', (_, req) => {
-      return req.requestBody
-    })
+app.post('/sendNewsletter', (req, res) => {
+  res.send(req.body)
+})
 
-    this.get('/getArticles', (_, req) => {
-      const { limit, offset } = req.queryParams
-      return {
-        articles: articles.slice(offset, Number(offset) + Number(limit)),
-        pages: Math.ceil(articles.length / limit)
-      }
-    })
-  }
+app.get('/getArticles', (req, res) => {
+  const { limit, offset } = req.query
+  res.send({
+    articles: articles.slice(offset, Number(offset) + Number(limit)),
+    pages: Math.ceil(articles.length / limit)
+  })
+})
+
+module.exports = {
+  path: '/api',
+  handler: app
 }
-
-export default options

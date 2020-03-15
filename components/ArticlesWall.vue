@@ -13,7 +13,7 @@ export default defineComponent({
   components: {
     Article
   },
-  setup (props, ctx: SetupContext) {
+  setup (props: any, ctx: SetupContext) {
     const { $store } = ctx?.root
     const articles: any = computed((): ArticleInterface[] => $store.getters['articles/articles'])
     return {

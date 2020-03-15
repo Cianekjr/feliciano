@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { computed, defineComponent, onServerPrefetch, SetupContext, watch } from '@vue/composition-api'
 import container from '~/layouts/container.vue'
 import Header from '~/components/Header.vue'
 import ArticlesWall from '~/components/ArticlesWall.vue'
@@ -21,6 +21,29 @@ export default defineComponent({
     Header,
     ArticlesWall,
     PageSwitcher
+  },
+  setup (props: any, ctx: SetupContext) {
+    const { $store, $axios, $route } = ctx?.root
+    const ARTICLES_LIMIT = 6
+
+    onServerPrefetch(() => {
+      const page = $route.query.page || '1'
+      return $store.dispatch('articles/getArticles', {
+        $axios,
+        limit: ARTICLES_LIMIT,
+        offset: (Number(page) - 1) * ARTICLES_LIMIT
+      })
+    })
+
+    const activePage = computed(() => ctx.root.$route.query.page || '1')
+
+    watch(activePage, (page: any) => {
+      $store.dispatch('articles/getArticles', {
+        $axios,
+        limit: ARTICLES_LIMIT,
+        offset: (Number(page) - 1) * ARTICLES_LIMIT
+      })
+    })
   }
 })
 </script>

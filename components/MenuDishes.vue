@@ -18,7 +18,7 @@ export default defineComponent({
   components: {
     Dish
   },
-  setup (props, ctx: SetupContext) {
+  setup (props: any, ctx: SetupContext) {
     const { $store } = ctx?.root
     const menuDishes: any = computed((): Category[] => $store.getters['menu-dishes/menuDishes'])
 
