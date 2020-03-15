@@ -31,12 +31,10 @@ ___
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn dev-api
 $ yarn dev
 
 # build for production and launch server
 $ yarn build
-$ yarn start-api
 $ yarn start
 
 # generate static project

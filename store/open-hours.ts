@@ -10,7 +10,7 @@ export const state = (): OpenHourState => ({
 
 export const actions = {
   async getOpenHours ({ commit }: any, { $axios }: any) {
-    const response = await $axios.get('/getOpenHours')
+    const response = await $axios.get('/api/getOpenHours')
     commit('setOpenHours', response?.data)
   }
 }

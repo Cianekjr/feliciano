@@ -12,7 +12,7 @@ export const state = (): ArticlesState => ({
 
 export const actions = {
   async getArticles ({ commit }: any, { $axios, limit, offset } : any) {
-    const response = await $axios?.get('/getArticles', {
+    const response = await $axios?.get('/api/getArticles', {
       params: {
         limit,
         offset

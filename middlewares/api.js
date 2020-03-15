@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-console.log('EXPRESS SERVER INIT INIT INIT NIT NITN ITI INTI INIT INTI IN T EXPRESS SERVER INIT INIT INIT NIT NITN ITI INTI INIT INTI IN T EXPRESS SERVER INIT INIT INIT NIT NITN ITI INTI INIT INTI IN T')
 
 const corsOptions = {
   origin: true
@@ -8,6 +7,7 @@ const corsOptions = {
 
 const app = express()
 app.use(cors(corsOptions))
+app.use(express.json())
 
 const menuDishes = {
   breakfast: [
@@ -518,7 +518,7 @@ app.get('/getOpenHours', (req, res) => {
 })
 
 app.post('/sendNewsletter', (req, res) => {
-  res.send(req.requestBody)
+  res.send(req.body)
 })
 
 app.get('/getArticles', (req, res) => {
@@ -529,4 +529,7 @@ app.get('/getArticles', (req, res) => {
   })
 })
 
-app.listen(8080)
+module.exports = {
+  path: '/api',
+  handler: app
+}

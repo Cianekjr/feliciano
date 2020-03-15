@@ -24,7 +24,6 @@ export default {
     '@nuxt/typescript-build'
   ],
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://127.0.0.1:8080' : 'http://127.0.0.1:8080',
     withCredentials: true
   },
   router: {
@@ -35,5 +34,12 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/axios'
-  ]
+  ],
+  serverMiddleware: [
+    '~/middlewares/api.js'
+  ],
+  server: {
+    port: process.env.PORT || 8080,
+    host: process.env.HOST || '0.0.0.0'
+  }
 }

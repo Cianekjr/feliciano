@@ -10,7 +10,7 @@ export const state = (): MenuDishesState => ({
 
 export const actions = {
   async getMenuDishes ({ commit }: any, { $axios, category } : any) {
-    const response = await $axios?.get('/getMenuDishes', {
+    const response = await $axios?.get('/api/getMenuDishes', {
       params: {
         category
       }

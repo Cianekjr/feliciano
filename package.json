@@ -5,10 +5,8 @@
   "author": "Mateusz Chrzanowski",
   "scripts": {
     "dev": "nuxt",
-    "dev-api": "nodemon ./api/express.js",
     "build": "nuxt build",
     "start": "nuxt start",
-    "start-api": "node ./api/express.js",
     "generate": "nuxt generate",
     "lint": "eslint --ignore-path .gitignore .",
     "test": "jest"
@@ -43,7 +41,6 @@
     "jest": "^25.1.0",
     "lint-staged": "^10.0.8",
     "node-sass": "^4.13.1",
-    "nodemon": "^2.0.2",
     "sass-loader": "^8.0.2",
     "vue-jest": "^4.0.0-0"
   }

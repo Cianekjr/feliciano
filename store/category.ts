@@ -10,7 +10,7 @@ export const state = (): CategoryState => ({
 
 export const actions = {
   async getCategories ({ commit }: any, { $axios }: any) {
-    const response = await $axios.get('/getCategories')
+    const response = await $axios.get('/api/getCategories')
     commit('setCategories', response?.data)
   }
 }
