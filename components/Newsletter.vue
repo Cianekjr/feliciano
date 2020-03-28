@@ -6,10 +6,10 @@
       commit="setEmail"
       type="email"
       placeholder="Enter email address"
-      class="input"
+      class="form-input"
       required
     />
-    <Button type="submit" name="newsletter">
+    <Button type="submit" name="send newsletter">
       Subscribe
     </Button>
   </form>
@@ -38,7 +38,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-  .input {
+  .form-input {
     margin-bottom: .8rem;
   }
 </style>

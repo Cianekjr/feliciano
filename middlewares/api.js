@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const corsOptions = {
-  origin: true
+  origin: '*'
 }
 
 const app = express()
@@ -518,6 +518,10 @@ app.get('/getOpenHours', (req, res) => {
 })
 
 app.post('/sendNewsletter', (req, res) => {
+  res.send(req.body)
+})
+
+app.post('/sendMessage', (req, res) => {
   res.send(req.body)
 })
 
