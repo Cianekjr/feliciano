@@ -26,6 +26,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "nuxt": "^2.11.0",
+    "nuxt-leaflet": "^0.0.21",
     "vue": "^2.6.11"
   },
   "devDependencies": {

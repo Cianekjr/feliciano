@@ -33,7 +33,8 @@ export default {
   },
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-leaflet'
   ],
   serverMiddleware: [
     '~/middlewares/api.js'

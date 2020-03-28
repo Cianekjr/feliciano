@@ -19,6 +19,7 @@
 - Typescript
 - PWA
 - Jest
+- Leaflet
 - Heroku (Hosting)
 - Buddy.Works (CI/CD)
 
@@ -30,7 +31,7 @@ ___
 # install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:8080
 $ yarn dev
 
 # build for production and launch server
