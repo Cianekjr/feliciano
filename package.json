@@ -27,7 +27,8 @@
     "express": "^4.17.1",
     "nuxt": "^2.11.0",
     "nuxt-leaflet": "^0.0.21",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-slick-carousel": "^1.0.5"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

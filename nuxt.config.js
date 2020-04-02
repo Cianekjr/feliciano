@@ -14,15 +14,33 @@ export default {
   },
   loading: { color: '#fff' },
   css: [
-    '@/css/index.scss'
+    '@/css/index.scss',
+    'vue-slick-carousel/dist/vue-slick-carousel.css',
+    'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
   ],
   plugins: [
-    '~/plugins/composition-api'
+    '~/plugins/composition-api',
+    { src: '~/plugins/vue-slick-carousel' }
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build'
   ],
+  build: {
+    extend (config, ctx) {},
+    babel: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            useBuiltIns: 'usage',
+            corejs: 3
+          }
+        ]
+      ],
+      plugins: ['@babel/transform-runtime']
+    }
+  },
   axios: {
     withCredentials: true
   },

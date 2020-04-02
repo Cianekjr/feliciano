@@ -50,3 +50,11 @@ export interface Article {
   commentsCount: Number,
   link: String
 }
+
+export interface Review {
+  id: Number,
+  name: String,
+  position: String,
+  img: String,
+  about: String
+}

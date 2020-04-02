@@ -2,7 +2,9 @@ const express = require('express')
 const cors = require('cors')
 
 const corsOptions = {
-  origin: '*'
+  origin: '*',
+  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
+  credentials: true
 }
 
 const app = express()
@@ -531,6 +533,39 @@ app.get('/getArticles', (req, res) => {
     articles: articles.slice(offset, Number(offset) + Number(limit)),
     pages: Math.ceil(articles.length / limit)
   })
+})
+
+app.get('/getReviews', (_, res) => {
+  res.send([
+    {
+      id: 0,
+      name: 'Ian Boner',
+      position: 'Customer',
+      img: 'person-1.jpg',
+      about: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
+    },
+    {
+      id: 1,
+      name: 'Jason McClean',
+      position: 'Customer',
+      img: 'person-2.jpg',
+      about: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
+    },
+    {
+      id: 2,
+      name: 'Mark Stevenson',
+      position: 'Customer',
+      img: 'person-3.jpg',
+      about: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
+    },
+    {
+      id: 3,
+      name: 'Art Leonard',
+      position: 'Customer',
+      img: 'person-4.jpg',
+      about: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
+    }
+  ])
 })
 
 module.exports = {
