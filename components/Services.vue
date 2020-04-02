@@ -80,6 +80,7 @@ export default defineComponent({
     line-height: 2;
     color: #666;
   }
+
   @media (min-width: 840px) {
     .list {
       grid-template-columns: repeat(3, 1fr);
