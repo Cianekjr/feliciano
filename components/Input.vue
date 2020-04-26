@@ -3,6 +3,7 @@
     class="label"
     :class="tag"
   >
+    {{ props.label }}
     <component
       :is="tag"
       v-model="message"
@@ -33,6 +34,9 @@ export default defineComponent({
     tag: {
       type: String,
       default: 'input'
+    },
+    label: {
+      type: String
     }
   },
   setup (props: any, ctx: SetupContext) {
@@ -55,23 +59,27 @@ export default defineComponent({
 <style scoped lang="scss">
   .label {
     width: 100%;
-    height: 5.2rem;
     display: block;
+    font-size: 1.7rem;
+    line-height: 2;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: #000;
 
-    &.textarea {
+    &.textarea .base-input {
       height: 15.6rem;
     }
   }
 
   .base-input {
+    height: 5.2rem;
     width: 100%;
-    height: 100%;
     border-radius: .2rem;
     background-color: rgba(255, 255, 255, .1);
     font-size: 1.6rem;
     line-height: 1.5;
     font-family: inherit;
-    font-weight: inherit;
+    font-weight: 500;
     padding: .6rem 1.2rem;
     transition: border-color .4s ease;
 

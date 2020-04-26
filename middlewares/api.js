@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const corsOptions = {
-  origin: '*',
+  origin: process.env.NODE_ENV === 'production' ? process.env.BASE_URL : '*',
   methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
   credentials: true
 }
@@ -566,6 +566,10 @@ app.get('/getReviews', (_, res) => {
       about: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
     }
   ])
+})
+
+app.post('/makeReservation', (req, res) => {
+  res.send(req.body)
 })
 
 module.exports = {
