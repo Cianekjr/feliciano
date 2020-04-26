@@ -1,5 +1,5 @@
 <template>
-  <container class="container">
+  <container v-if="reviews.length" class="container">
     <Heading heading="Testimony" subheading="Happy Customer" />
     <VueSlickCarousel
       class="carousel"
@@ -73,8 +73,11 @@ export default defineComponent({
       $store.dispatch('reviews/getReviews', {
         $axios
       })
+      // we need to add responsive on mounted (client side)
+      // instead there would be missmatching between dom and v-dom
       slickOptions.value.responsive = slickResposive
     })
+
     const reviews: any = computed((): Review[] => $store.getters['reviews/reviews'])
 
     return {

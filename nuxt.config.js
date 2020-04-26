@@ -20,7 +20,7 @@ export default {
   ],
   plugins: [
     '~/plugins/composition-api',
-    { src: '~/plugins/vue-slick-carousel' }
+    '~/plugins/vue-slick-carousel'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
