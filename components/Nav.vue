@@ -156,9 +156,17 @@ export default defineComponent({
     padding: 1.5rem;
     border-radius: .5rem;
 
+    &.active {
+      color: #000;
+    }
+
     &.fixed {
       border-radius: 0;
-      color: #fff;
+      color: #000;
+
+      &.active {
+        color: #fff;
+      }
     }
   }
 
