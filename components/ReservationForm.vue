@@ -1,5 +1,5 @@
 <template>
-  <section class="wrapper-form">
+  <section class="wrapper-form" :class="{ secondary: props.secondary }">
     <Heading heading="Book a table" subheading="Make Reservation" class="title" />
     <form
       ref="form"
@@ -81,14 +81,20 @@ export default defineComponent({
     Input,
     Button
   },
-  setup (_: any, ctx: SetupContext) {
+  props: {
+    secondary: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup (props: any, ctx: SetupContext) {
     const { $store, $axios } = ctx?.root
     const makeReservation = () => {
       $store.dispatch('reservation/makeReservation', {
         $axios
       })
     }
-    return { makeReservation }
+    return { makeReservation, props }
   }
 })
 </script>
@@ -96,12 +102,8 @@ export default defineComponent({
 <style scoped lang="scss">
   .wrapper-form {
     background-color: #fff;
-    padding: 0 2rem 4rem;
+    padding: 1rem 2rem 4rem;
     width: 100%;
-  }
-
-  .title {
-    transform: translateY(-30%);
   }
 
   .reservation-form {
@@ -109,9 +111,30 @@ export default defineComponent({
     row-gap: 1.5rem;
   }
 
+  .title {
+    margin-bottom: 2.4rem;
+  }
+
+  .secondary {
+    &.wrapper-form {
+      padding-top: 0;
+    }
+
+    .title {
+      transform: translateY(-30%);
+      margin-bottom: 0;
+    }
+  }
+
   @media (min-width: 520px) {
     .wrapper-form {
-      padding: 0 4rem 5rem;
+      padding: 2rem 4rem 5rem;
+    }
+
+    .secondary {
+      &.wrapper-form {
+        padding-top: 0;
+      }
     }
   }
 

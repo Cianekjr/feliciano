@@ -1,17 +1,15 @@
 <template>
   <section class="section">
-    <ReservationForm class="form" />
+    <ReservationForm class="form" secondary />
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import container from '~/layouts/container.vue'
 import ReservationForm from '~/components/ReservationForm.vue'
 
 export default defineComponent({
   components: {
-    container,
     ReservationForm
   }
 })
