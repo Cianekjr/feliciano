@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="{ secondary: props.secondary }">
     <h2 class="heading">
       {{ props.heading }}
     </h2>
@@ -21,6 +21,10 @@ export default defineComponent({
     subheading: {
       type: String,
       required: true
+    },
+    secondary: {
+      type: Boolean,
+      default: false
     }
   },
   setup (props: any) {
@@ -53,6 +57,20 @@ export default defineComponent({
     color: #333;
   }
 
+  .wrapper.secondary {
+    .heading {
+      margin-bottom: 3rem;
+      font-size: 6rem;
+    }
+
+    .subheading {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 2.5rem;
+    }
+  }
+
   @media (min-width: 420px) {
     .heading {
       font-size: 10rem;
@@ -61,6 +79,28 @@ export default defineComponent({
 
     .subheading {
       font-size: 5rem;
+    }
+
+    .wrapper.secondary {
+      .heading {
+        font-size: 7rem;
+      }
+
+      .subheading {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .wrapper.secondary {
+      .heading {
+        font-size: 8rem;
+      }
+
+      .subheading {
+        font-size: 6rem;
+      }
     }
   }
 </style>
