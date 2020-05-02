@@ -19,6 +19,7 @@ export default defineComponent({
   .section {
     background-image: url('~assets/images/bg-3.jpg');
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     display: grid;
     justify-items: center;

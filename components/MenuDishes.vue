@@ -12,7 +12,7 @@
 <script lang="ts">
 import { computed, defineComponent, SetupContext } from '@vue/composition-api'
 import Dish from '~/components/Dish.vue'
-import { Category } from '~/models/definitions'
+import { MenuDishes } from '~/models/definitions'
 
 export default defineComponent({
   components: {
@@ -20,7 +20,7 @@ export default defineComponent({
   },
   setup (props: any, ctx: SetupContext) {
     const { $store } = ctx?.root
-    const menuDishes: any = computed((): Category[] => $store.getters['menu-dishes/menuDishes'])
+    const menuDishes: any = computed((): MenuDishes => $store.getters['menu-dishes/menuDishes'])
 
     return {
       menuDishes

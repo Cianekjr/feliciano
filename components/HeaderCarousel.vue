@@ -98,6 +98,7 @@ export default defineComponent({
   .content {
     width: 100%;
     height: 100%;
+    background-size: cover;
   }
 
   .overlay {
@@ -125,23 +126,23 @@ export default defineComponent({
   }
 
   .arrow-prev {
-    transform: translateY(-50%) rotateY(180deg) translateX(0);
+    transform: rotateY(180deg) translateX(0, -50%);
     right: 100%;
     left: auto;
   }
 
   .arrow-next {
-    transform: translateY(-50%) translateX(0);
+    transform: translate(0, -50%);
     left: 100%;
   }
 
   .hovered {
     .arrow-prev {
-      transform: translateY(-50%) rotateY(180deg) translateX(-100%);
+      transform: rotateY(180deg) translate(-100%, -50%);
     }
 
     .arrow-next {
-      transform: translateY(-50%) translateX(-100%);
+      transform: translate(-100%, -50%);
     }
   }
 
