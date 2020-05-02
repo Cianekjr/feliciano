@@ -14,56 +14,56 @@ app.use(express.json())
 const menuDishes = {
   breakfast: [
     {
-      id: 0,
+      id: 10,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 29,
       img: 'breakfast-1.jpg'
     },
     {
-      id: 1,
+      id: 11,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 39,
       img: 'breakfast-2.jpg'
     },
     {
-      id: 2,
+      id: 12,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 15,
       img: 'breakfast-3.jpg'
     },
     {
-      id: 3,
+      id: 13,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 23,
       img: 'breakfast-4.jpg'
     },
     {
-      id: 4,
+      id: 14,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 26,
       img: 'breakfast-5.jpg'
     },
     {
-      id: 5,
+      id: 15,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 32,
       img: 'breakfast-6.jpg'
     },
     {
-      id: 6,
+      id: 16,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 16,
       img: 'breakfast-7.jpg'
     },
     {
-      id: 7,
+      id: 17,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 20,
@@ -72,42 +72,42 @@ const menuDishes = {
   ],
   lunch: [
     {
-      id: 0,
+      id: 101,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 49,
       img: 'lunch-1.jpg'
     },
     {
-      id: 1,
+      id: 102,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 54,
       img: 'lunch-2.jpg'
     },
     {
-      id: 2,
+      id: 103,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 45,
       img: 'lunch-3.jpg'
     },
     {
-      id: 3,
+      id: 104,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 39,
       img: 'lunch-4.jpg'
     },
     {
-      id: 4,
+      id: 105,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 36,
       img: 'lunch-5.jpg'
     },
     {
-      id: 5,
+      id: 106,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 52,
@@ -116,42 +116,42 @@ const menuDishes = {
   ],
   dinner: [
     {
-      id: 0,
+      id: 201,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 22,
       img: 'dinner-1.jpg'
     },
     {
-      id: 1,
+      id: 202,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 34,
       img: 'dinner-2.jpg'
     },
     {
-      id: 2,
+      id: 203,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 32,
       img: 'dinner-3.jpg'
     },
     {
-      id: 3,
+      id: 204,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 29,
       img: 'dinner-4.jpg'
     },
     {
-      id: 4,
+      id: 205,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 26,
       img: 'dinner-5.jpg'
     },
     {
-      id: 5,
+      id: 206,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 33,
@@ -160,42 +160,42 @@ const menuDishes = {
   ],
   drinks: [
     {
-      id: 0,
+      id: 301,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 49,
       img: 'drink-1.jpg'
     },
     {
-      id: 1,
+      id: 302,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 54,
       img: 'drink-2.jpg'
     },
     {
-      id: 2,
+      id: 303,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 45,
       img: 'drink-3.jpg'
     },
     {
-      id: 3,
+      id: 304,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 39,
       img: 'drink-4.jpg'
     },
     {
-      id: 4,
+      id: 305,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 36,
       img: 'drink-5.jpg'
     },
     {
-      id: 5,
+      id: 306,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 52,
@@ -204,28 +204,28 @@ const menuDishes = {
   ],
   desserts: [
     {
-      id: 0,
+      id: 401,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 22,
       img: 'dessert-1.jpg'
     },
     {
-      id: 1,
+      id: 402,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 24,
       img: 'dessert-2.jpg'
     },
     {
-      id: 2,
+      id: 403,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 26,
       img: 'dessert-3.jpg'
     },
     {
-      id: 3,
+      id: 404,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 23,
@@ -234,56 +234,56 @@ const menuDishes = {
   ],
   wine: [
     {
-      id: 0,
+      id: 501,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 59,
       img: 'wine-1.jpg'
     },
     {
-      id: 1,
+      id: 502,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 63,
       img: 'wine-2.jpg'
     },
     {
-      id: 2,
+      id: 503,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 80,
       img: 'wine-3.jpg'
     },
     {
-      id: 3,
+      id: 504,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 99,
       img: 'wine-4.jpg'
     },
     {
-      id: 4,
+      id: 505,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 78,
       img: 'wine-5.jpg'
     },
     {
-      id: 5,
+      id: 506,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 66,
       img: 'wine-6.jpg'
     },
     {
-      id: 6,
+      id: 507,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 98,
       img: 'wine-7.jpg'
     },
     {
-      id: 7,
+      id: 508,
       name: 'Grilled Beef with potatoes',
       ingredients: 'Meat, Potatoes, Rice, Tomatoe',
       price: 78,
@@ -291,6 +291,7 @@ const menuDishes = {
     }
   ]
 }
+
 const articles = [
   {
     id: 0,
@@ -446,6 +447,20 @@ const articles = [
     link: '#'
   }
 ]
+
+app.get('/getRandomDishes', (req, res) => {
+  const count = (req.query && req.query.count) || 4
+  const allMenuDishes = Object.values(menuDishes).reduce((acc, item) => {
+    return acc.concat(item)
+  }, [])
+  const allMenuDishesCount = allMenuDishes.length
+  const uniqueArray = new Set()
+  while (uniqueArray.size < Math.min(count, allMenuDishesCount)) {
+    uniqueArray.add(Math.floor(Math.random() * allMenuDishesCount))
+  }
+  const result = [...uniqueArray].map((item, index) => allMenuDishes[item])
+  res.send(result)
+})
 
 app.get('/getMenuDishes', (req, res) => {
   const category = req.query && req.query.category
